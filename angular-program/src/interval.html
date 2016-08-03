@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+         <script>
+       	    var app = angular.module('MyModule', []);
+            app.controller('myCtrl', function($scope, $interval) {
+              $scope.theTime = new Date().toLocaleTimeString();
+              $interval(function () {
+                  $scope.theTime = new Date().toLocaleTimeString();
+              }, 1000);
+            });
+         </script>
+         <!-- settimeout函数对应着js中window.settimeout函数 -->
+     </head>
+     <body> 
+      <div ng-controller="myCtrl">  
+          <p>现在的时间是：</p>
+          <h1>{{theTime}}</h1>
+      </div>
+
+     </body>
+
+</html>

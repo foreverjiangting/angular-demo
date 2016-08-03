@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+// 仅在chrome下不起作用，而在其它浏览器中起作用，chrome下不支持本地文件的加载
+		var app = angular.module('myApp', []);
+		app.controller('myctrl',function($scope){
+			// $scope.names = [
+			//   {name:"111",url:"http://jtjds.cn"},
+			//   {name:"222",url:"http://jtjds2.cn"},
+			//   {name:"333",url:"http://jtjds3.cn"},
+
+			// ];
+			$scope.names={
+				01:{name:"111",age:"12",sex:"female"},
+				02:{name:"222",age:"15",sex:"male"},
+				03:{name:"333",age:"18",sex:"male"}
+			};
+		});
+		
+</script>
+</head>
+<body>
+     <div ng-controller=" myctrl">
+        <!-- <select ng-model="selectedname" ng-options=" x for x in names">
+        	
+        </select> -->
+        <!-- <select>
+        	<option ng-repeat=" x in names">{{x}}</option>
+        </select> -->
+        <!-- 如果用ng-repeat进行输出 -->
+      <!--   <select ng-model="selected">
+        	 <option ng-repeat = "x in names" value="{{x.url}}">{{x.name}}</option>
+        </select>
+        <p>你选择的是：{{selected}}</p>  -->
+        <!-- 如果用ng-options -->
+       <!--  <select ng-model="select" ng-options=" x.name for x in names"></select>
+        <h1>你选择的是：{{select.name}}</h1>
+        <p>网址是：{{select.url}}</p> -->
+        <!-- 如果使用数据源作为数据 -->
+        <select ng-model="select" ng-options="x for (x,y) in names"></select>
+        <h1>你选择的name是：{{select.name}}</h1>
+        <h1>你选择的age是：{{select.age}}</h1>
+        <h1>你选择的sex是：{{select.sex}}</h1>
+
+     </div>
+    <!-- ng-repeat指令是通过数组来循环html代码来创建下拉列表，但ng-options指令更适合创建下拉列表，它具有以下优势：
+         ng-options是选项的一个对象，ng-repeat是一个字符串。
+    -->
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+       	    var app=angular.module('MyModule',[]);
+            app.controller('personctrl',function($scope){
+                  $scope.firstname='luncy';
+                  $scope.lastname='jiang';
+                  $scope.fullname=function(){
+                    return $scope.firstname+" "+$scope.lastname;
+                  }
+                  $scope.names=[
+                     {name:'111',contry:'222'},
+                     {name:'222',contry:'111'},
+                     {name:'333',contry:'444'}
+
+                  ];
+            });
+         </script>
+     </head>
+     <body>   
+        <div ng-controller="personctrl">
+           firstname:<input type="text" ng-model="firstname"><br>
+           lastname:<input type="text" ng-model="lastname"><br>
+           fullname:{{fullname() | uppercase }}
+           <p ng-repeat="x in names | orderBy:'contry'">{{x.name+','+x.contry}}</p>
+        </div>
+
+     </body>
+
+</html>

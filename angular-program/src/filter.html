@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+         <script>
+       	    var app = angular.module('MyModule', []);
+            //自定义函数
+            app.service('hexafy',function(){
+              this.myfunc = function(x){
+                return x.toString(16);
+              }
+            });
+            app.filter('myCtrl',[ 'hexafy',function(hexafy){
+                return function(x){
+                  return hexafy.myfunc(x);
+                };
+            }]);
+            app.controller('myctrl',function($scope){
+                $scope.counts=[255,251,200];
+            });
+           
+         </script>
+         <!-- settimeout函数对应着js中window.settimeout函数 -->
+     </head>
+     <body> 
+      <div ng-controller='myctrl'>  
+          <p>在过滤器中使用服务是如下所示：</p>
+          <h1>{{255 | myCtrl}}</h1>
+          <!-- 获取数组里的值，并将其过滤 -->
+          <p ng-repeat='x in counts'>{{ x | myCtrl}}</p>
+      </div>
+
+     </body>
+
+</html>

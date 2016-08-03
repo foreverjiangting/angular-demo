@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+         <script>
+            var app=angular.module("MyModule",[]);
+            app.controller('myctrl',function($scope){
+                $scope.name="tingfeng"; 
+             });
+         </script>
+         <style type="text/css">
+             input.ng-invalid{background: yellow;}
+         </style>
+            
+     </head>
+     <body>  
+         <!--ng-model指令用于绑定应用程序数据到html控制器的值-->
+          <div ng-controller="myctrl">
+              name:<input ng-model="name">
+          </div>
+          <!-- ng-model指令可以将输入域的值与angularjs创建的变量绑定 -->
+          <!-- 双向绑定，在修改输入域的值时，angularjs属性的值也将发生修改 -->
+          <!-- ng-model指令基于它们的状态为html元素提供了css类-->
+
+              <form  name="myform">
+                  email:
+                  <input type="email" name="myaddress" ng-model="text">
+                  <span ng-show="myform.myaddress.$error.email">不是一个正确的邮箱地址</span>
+              </form>
+
+              <form  name="myForm">
+                    Email:
+                    <input type="email" name="myAddress" ng-model="text">
+                    <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+              </form>
+
+            <p>在输入框中输入你的邮箱地址，如果不是一个合法的邮箱地址，会弹出提示信息。</p>
+
+            <form name="myform">
+                input your name:<input name="myname" ng-model="mytext" required>
+            </form>
+
+
+
+     </body>
+
+</html>

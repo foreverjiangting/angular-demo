@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+       	    var app=angular.module('MyModule',[]);
+            app.controller('myctrl',function($scope){
+                // $scope.name="jiangting";
+               //  $scope.names=["111","222","333"];//一般以数组的形式
+               $scope.names=[
+                 {name:'jiangting',country:'ciddy'},{name:'helloworld',country:'dddty'},{name:'adeeee',country:'errrro'}
+               ]
+
+            });
+         </script>
+     </head>
+     <body>   
+        <div ng-controller="myctrl">
+            <!-- <h1>{{name}}</h1>  -->
+            <!--视图中，不需要添加额外的$scope前缀，只需要添加属性即可，形如{{}}-->
+            <ul>
+                 <li ng-repeat="x in names">{{x.name+','+ x.country}}</li>
+            </ul>
+        </div>
+     </body>
+
+</html>

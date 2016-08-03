@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="MyModule">
+  <head>
+     <meta charset="utf-8">
+     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+     <script>
+   	   var app = angular.module('MyModule', []);
+       app.controller('myCtrl', function($scope, $http) {
+          $http.get("http.html").then(function(response){
+               $scope.mywelcome=response.data;
+          });
+      });
+     </script>
+  </head>
+  <body>   
+    <p>$http服务向服务器请求信息，返回的值放入变量welcome</p>
+    <p ng-controller="myCtrl">{{mywelcome}}</p>
+  </body>
+
+</html>

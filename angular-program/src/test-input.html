@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+         <script>
+       	    var app = angular.module('MyModule', []);
+            app.controller('validatectrl', function($scope) {
+              $scope.user="john doe";
+              $scope.email="xxxx@qq.com";
+            });
+         </script>
+         <!-- settimeout函数对应着js中window.settimeout函数 -->
+     </head>
+     <body> 
+       <form ng-controller="validatectrl" name="myform" novalidate>
+            用户名：<input type="text" name="user" ng-model="user" required>
+              邮箱：<input type="email" name="email" ng-model="email" required>
+            <span style="color:red" ng-show="myform.user.$dirty && myform.user.$invalid">
+                 <span ng-show="myform.user.$error.required">用户名是必须的。</span> 
+                 <span ng-show="myform.email.$error.email">非法邮箱</span>            
+            </span>
+
+            <input type="submit" ng-disabled="myform.user.$dirty && myform.user.$invalid" || myform.email.$dirty && myform.email.$invalid>
+            <!-- $dirty表单有填写记录 ｜ $valid字段内容合法  $invalid字段内容是非法的 $pristine表单没有填写纪录-->
+
+       </form>
+     </body>
+
+</html>

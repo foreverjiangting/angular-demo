@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+         <script>
+       	    var app = angular.module('MyModule', []);
+            //自定义函数
+            app.service('hexafy',function(){
+              this.myfunc = function(x){
+                return x.toString(16);
+              }
+            });
+            app.controller('myCtrl', function($scope, hexafy) {
+              $scope.hex = hexafy.myfunc(255);
+              
+            });
+         </script>
+         <!-- settimeout函数对应着js中window.settimeout函数 -->
+     </head>
+     <body> 
+      <div ng-controller="myCtrl">  
+          <p>16进制转换后为：</p>
+          <h1>{{hex}}</h1>
+      </div>
+
+     </body>
+
+</html>

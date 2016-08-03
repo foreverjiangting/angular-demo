@@ -1,0 +1,41 @@
+angularjs的四大特性：
+mvc －－m指数据模型  
+模块化
+指令系统－－自定义标签，设置模板，借助directive
+双向数据绑定  －－
+
+代码模块化，职责清晰
+ng-app:从此处开始，所有内容均归angular进行管理
+目前大多数前端框架是利用单数据绑定，backbone flex  jqueryui 
+
+前端开发工具
+编辑工具：sublime text webstorm 
+断点工具：chrome ｜batarang
+过滤器可以通过一个管道符｜和一个过滤器添加到指令中
+orderby过滤器根据表达式排列数组：
+filter过滤器从数组中选择一个子集，表示过滤其它的，只留下该子元素
+
+angularjs过滤器：用于转换数据，可以通过一个管道符 | 和一个过滤器添加到表达式中。。。有五种currency|filter|lowercase|orderby|uppercase
+
+angularjs:服务是一个函数或对象，angularjs内建了30多个服务，$location服务，可以返回当前页面的url地址
+##$location服务是作为一个参数传递到controller中，如果要使用它，需要在controller中定义。
+
+为什么使用服务？
+$http是angularjs应用中最常用的服务，服务向服务器发送请求，应用响应服务器传递过来的数据。
+angularjs会一直监控应用，处理事件变化，angularjs使用$location服务比使用window.location对象更好。
+
+
+$http:是angularjs中的一个核心服务，用于读取远程服务器的数据
+angularjs模块让所有的函数的作用域在该模块下，避免了该问题
+
+什么时候载入库？
+所有的angularjs都在文档的html的头部载入－－
+
+客户端的验证不能确保用户输入数据的安全，所以服务器端的数据验证也是必须的。
+angularjs表单和控件可以提供验证功能，并对用户输入的非法数据进行警告。
+
+angularjs全局api用于执行常见任务的javascript函数集合，如：比较对象，迭代对象，转换对象
+angularjs.lowercase()--转换字符串为小写
+angularjs.uppercase()--转换字符串为大写
+angularjs.isString()--判断给定的对象是否为字符串，如果是返回true
+angularjs.isNumber()--判断给定的对象是否为数字，如果是返回false

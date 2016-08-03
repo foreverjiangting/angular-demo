@@ -1,0 +1,73 @@
+angularjs的四大特性：
+mvc －－m指数据模型  
+模块化
+指令系统－－自定义标签，设置模板，借助directive
+双向数据绑定  －－
+
+代码模块化，职责清晰
+ng-app:从此处开始，所有内容均归angular进行管理
+目前大多数前端框架是利用单数据绑定，backbone flex  jqueryui 
+
+前端开发工具
+编辑工具：sublime text webstorm 
+断点工具：chrome ｜batarang 
+
+前端mvc－－
+controller－－不要试图去服用controller，一个控制器一半只负责一个小块试图
+－－－不要直接在controller中操作dom，这不是其职责
+－－－不要在controller里面做数据过滤的操作，ng有$filter服务
+－－－不要在controller里面做数据格式化，ng有很好用的表单控件
+－－－controller是不会互相调用，控制器之间的交互会通过事件进行，通过scope进行调用
+
+先找ng-app，开始进行操作，继续寻找ng-model，进行执行！
+
+视图的机制：
+angularjs的mvc全部借助于$scope进行的。
+ng-repeat:将数组输出来！内联表达式 
+$rootscope--处于最顶层的
+$scope－－是一个pojo（plain old javascript object）
+       --提供了一些工具方法$watch()/$apply()
+       －－是表达式的执行环境（或者作用域）
+       －－$scope是一个树型结构，与dom标签平行
+       －－$scope对象会继承父$scope上的属性和方法
+       －－每一个angular应用直邮一个根$scope对象，一半位于ng-app上
+       －－$scope可以传播事件，类似dom，可以向上也可以向下
+       －－$scope不仅是mvc的基础，也是后面实现双向绑定的基础
+五个变化：
+create-watcher-model-mutation-scope 
+
+路由，模块，依赖注入
+$routeprovider---控制器来控制路由 when／other size两种方法
+app controller directive filter services
+依赖注入：
+
+
+angularjs的三个组成部分：
+模板：即编写的html和css的文件，展现应用的视图。angularjs可以在html中构建自己的html标记！
+controller:与ajax不同，不需要另外编写侦听器或dom控制器，因为它已经内置到angularjs中。
+           好处：便于编写，测试，维护和理解
+模型data：模型是从angularjs做用域对象的属性引申的。模型的数据可能是js对象，数组或基本类型，但都属于angularjs作用域对象。
+
+angular通过作用域来保持数据模型与视图界面ui的双向同步，一旦模型发生改变，angularjs将立即刷新在视图界面中。
+angularjs提供的服务特性：
+1:底层服务包括依赖注入，xhr,缓存，url路由和浏览器抽象服务。
+2:可以扩展或添加自己特定的应用服务
+
+－－angular引导程序
+ng-app:该属性说明整个<html>都是angular脚本作用域，也可以在局部使用ng-app指令，比如<div ng-app>则angularjs脚本仅在该div中运行。
+
+－－angularjs的表达式仅在angularjs的作用域中运行，而不是在整个dom中运行。表达式即类似于javascript的代码片段，实质是应用的数据模型引用。
+
+－－引导angularjs的应用  ＃＃如何应用？如何引导？
+使用imperative指令或者手动引导angularjs应用
+注意点：1:注入器将用于创建此应用程序的依赖注入 －－如何创建？
+       2:注入器将会创建根作用域作为我门应用模型的范围
+       3:angularjs将会链接根作用域中的dom，从ngapp标记的html标签开始，逐步处理dom中指令和绑定
+    一旦angularjs应用引导完毕，它将继续侦听浏览器的html触发时间，如鼠标点击事件，按键事件，http传人响应等改变dom模型的事件，事件一旦 触发，angularjs将自动检测变化，并作出相应的处理和更新。
+
+视图和模板：
+在angularjs中，一个视图是模型通过html模板渲染之后的映射。即不论模型什么时候发生变化，angularjs会实时更新结合点，随之更新视图。
+angularjs迭代器：即使用ng-repeat执行命令时，从数组中获取数据
+
+
+angularjs作用域：一个作用域可以视作模板，模型和控制器协同工作的粘接器，angularjs使用作用域，同时还有模板中的信息，数据模型和控制器。这些可以帮助模型和视图分离，但他们两者确实时同步的！任何对于模型的更改都会即时反映到视图上，任何视图的更改都会被立刻体现在模型中。

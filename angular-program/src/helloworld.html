@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- 标记angularjs处理整个html页并引导应用 -->
+<html ng-app>  
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+       
+       </script>
+     </head>
+     <body>
+      <!-- hello {{'world'}}! -->
+     <!--  <div ng-init="name='tingfeng'">
+             <p>name is:<span ng-bind="name"></span></p>
+      </div> -->
+
+    <p>name:{{"ting"+"feng"}}</p>
+    <p>number:{{5+5}}</p>
+    <div ng-init="person={name:'tingfeng',age:'13'}">
+         <p>name:{{person.name}}&nbsp;age:{{person.age}}</p>
+    </div>
+
+       
+
+     </body>
+
+</html>

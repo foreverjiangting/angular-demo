@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app>
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+         // $scope为控制器的作用域，
+         //angularjs作用域：可以视作模板，当应用启动之后，会有一个根作用域被创建出来，而控制器的作用域是根作用域的一个典型后继。
+            function  newsCtrl($scope){
+                 $scope.news=[
+                    {"content":"new1",
+                     "introduce":"just a test page1"},
+                    {"content":"new2",
+                     "introduce":"just a test page2"}
+                 ];
+                 $scope.phones={
+                    length:"4"    
+                    // 单个的属性不能加分号，多个属性用逗号分隔
+                 };
+
+            }
+        </script>
+     </head>
+     <body ng-controller="newsCtrl">
+      <ul>
+         <!--  <li>
+             <span>new1</span>
+             <p>just a test page1</p>
+          </li>
+          <li>
+             <span>new2</span>
+             <p>just a test page2</p>
+          </li> -->
+          <li ng-repeat="new in news">
+              {{new.content}}
+              <p>{{new.introduce}}</p>
+          </li>
+      </ul> 
+      <p>total number of phones:{{phones.length}}</p> 
+      <table>
+          <tr>
+              <th>row number</th>
+          </tr>
+          <tr ng-repeat="i in [0,1,2,3,4,5,6,7]">            
+              <td>{{i}}</td>
+          </tr>
+      </table>
+     </body>
+
+</html>

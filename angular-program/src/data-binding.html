@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- 标记angularjs处理整个html页并引导应用 -->
+<html ng-app>  
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+       
+         </script>
+     </head>
+     <body>
+        <div ng-init="quantity=1;price=5">
+            <h2>calculate the price</h2>
+            quanlity:<input ng-model="quantity">
+            price:<input  ng-model="price">
+            <p>price:{{quantity*price}}</p>
+        </div>
+       <!-- ng-repeat指令会重复一个html元素 -->
+
+     </body>
+
+</html>

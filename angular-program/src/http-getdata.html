@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+
+  <p ng-repeat="x in names">
+    {{ x.Name + ', ' + x.Country }}
+  </p>
+
+
+</div>
+
+<script>
+// 仅在chrome下不起作用，而在其它浏览器中起作用，chrome下不支持本地文件的加载
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  $http.get("http.json")
+  .success(function (response) {$scope.names = response.records;});
+});
+</script>
+
+</body>
+</html>
+

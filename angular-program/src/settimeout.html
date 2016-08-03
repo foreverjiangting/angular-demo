@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+         <script>
+       	    var app = angular.module('MyModule', []);
+            app.controller('myCtrl', function($scope, $timeout){
+              $scope.myheader = "hello,world";
+              $timeout(function() {
+                $scope.myheader=" how are you?";
+              }, 2000);
+          });
+         </script>
+         <!-- settimeout函数对应者js中window.settimeout函数 -->
+     </head>
+     <body> 
+      <div ng-controller="myCtrl">  
+          <p>两秒后显示信息</p>
+          <h1>{{myheader}}</h1>
+      </div>
+
+     </body>
+
+</html>

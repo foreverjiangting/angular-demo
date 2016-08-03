@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+	// 仅在chrome下不起作用，而在其它浏览器中起作用，chrome下不支持本地文件的加载
+	var app = angular.module('myApp',[]);
+	app.controller('customersCtrl', function($scope) {
+	   $scope.master={firstname:"111",lastname:"2222"};
+	   $scope.reset=function(){
+	   	  $scope.user=angular.copy($scope.master);
+	   };
+	   $scope.reset();
+	});
+</script>
+</head>
+<body>
+<!-- novalidate属性是在html5中新增的，禁用了使用浏览器的默认验证-->
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+     <form novalidate>
+         first name:<input type="text" ng-model="user.firstname"><br>
+         last  name:<input type="text" ng-model="user.lastname"><br>
+         <button ng-click="reset()">reset</button>
+     </form>
+     <p>form={{user}}</p>
+     <!-- 此时获取user的相关属性 -->
+     <p>master={{master}}</p>
+
+  
+</div>
+
+
+
+</body>
+</html>
+

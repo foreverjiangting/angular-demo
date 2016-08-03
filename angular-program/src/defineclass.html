@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="myapp">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+         <script>
+       	 //指令系统
+              var app=angular.module("myapp",[]);
+              app.directive("myApp",function(){
+                  return{
+                    restrict:"C",
+                    template:"<h3>自定义格式设置样式</h3>"
+                  };
+              });
+       
+         </script>
+     </head>
+     <body >   
+        <div class="my-app"></div>
+     </body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+</head>
+<body >
+
+<div class="runoob-directive"></div>
+
+<script>
+var app = angular.module("myApp", []);
+app.directive("runoobDirective", function() {
+    return {
+        restrict : "C",
+        template : "<h1>自定义指令!</h1>"
+    };
+});
+</script>
+
+<p><strong>注意：</strong> 你必须设置 <b>restrict</b> 的值为 "C" 才能通过类名来调用指令。</p>
+
+</body>
+</html> -->

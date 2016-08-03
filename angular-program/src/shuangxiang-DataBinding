@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app>
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+         //双数据绑定
+       	 function test($scope){
+              $scope.name={
+              	  value:'tingfeng'
+              };
+       	 }
+       </script>
+     </head>
+     <body>
+        <!-- travel{{'word'}}! -->
+        <!-- 双向数据绑定ng-model绑定到setname的模型变量，默认为word-->
+        your name:<input type="text" ng-model="setname" placeholder="please add your name"> 
+        <hr>
+        hello {{setname  || 'word'}}! 
+        <!-- 不需要额外的为应用另外注册一个事件侦听器或添加事件处理程序 -->
+       
+
+     </body>
+
+</html>

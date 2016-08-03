@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="HelloAngular">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+
+       	 //模块化
+       	var myModule = angular.module("HelloAngular", []);
+
+		myModule.controller("helloAngular", ['$scope',
+		    function HelloAngular($scope) {
+		        $scope.value = {
+		            name: 'jiangting'
+		        };
+		    }
+		]);
+       
+       </script>
+     </head>
+     <body>
+       
+        <!-- mvc看angular-->
+        <div ng-controller="helloAngular">
+             <p>{{value.name}},hello!</p>
+        </div>
+        <!-- angular 模块化 -->  
+
+     </body>
+
+</html>

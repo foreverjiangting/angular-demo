@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="MyModule">
+     <head>
+         <meta charset="utf-8">
+         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+         <script>
+       	 //指令系统
+        var myModule = angular.module("MyModule", []);
+		    myModule.directive("hello", function() {
+		    return {
+		        restrict: 'E',//限制使用
+		        template: '<div>Hi everyone!</div>',
+		        replace: true
+		    }
+		});
+       </script>
+     </head>
+     <body>   
+        <hello></hello>
+     </body>
+
+</html>

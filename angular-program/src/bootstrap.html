@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    
+    <style type="text/css">
+      /*工具栏项目*/
+.set-toolbar{
+  
+  position: absolute;
+  top: 20px;
+  left: 10px;
+}
+/*左侧菜单*/
+    .sidebar-menu{
+      width: 180px;height: auto;
+      border-right: 1px solid #c4c8cb;
+    }
+    
+    .sidebar-menu ul .set-image{
+      display: block;
+      width: 30px;height: 30px;
+      
+    }
+    .sidebar-menu ul .set-image a{
+      display: block;
+      width: 30px;height: 30px;
+    }
+    
+
+    /*一级菜单*/
+    .menu-first{
+      height:45px;
+      line-height:45px;
+      background-color: #e9e9e9;
+      border-top: 1px solid #efefef;
+      border-bottom: 1px solid #e1e1e1;
+      padding: 0;
+      font-size: 14px;
+      font-weight: normal;
+      text-align: center;
+    }
+    .menu-first a{font-size: 16px;}
+    
+    .nav-header {
+        display: block;
+        padding: 13px 15px;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 20px;
+        color: #999;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+        text-transform: uppercase;
+    }
+    /*一级菜单鼠标划过状态*/
+    .menu-first:hover{
+      text-decoration: none;
+      background-color: #d6d4d5;
+      border-top: 1px solid #b7b7b7;
+      border-bottom: 1px solid #acacac;
+    }
+    /*二级菜单*/
+    .menu-second  .set-image{float: left;}
+    .menu-second  .set-image a{
+      width:30px;height:30px;
+    }
+    .menu-second  .set-image a:hover{
+       background-color: #ccc;
+       border:0px;
+    }
+    .menu-second li a{
+      background-color: #f6f6f6;
+      height:31px;
+      line-height:31px;
+      border-top: 1px solid #efefef;
+      border-bottom: 1px solid #efefef;
+      font-size: 12px;
+      text-align:center;
+
+    }
+    /*二级菜单鼠标划过样式*/
+    .menu-second li a:hover {
+      text-decoration: none;
+      background-color: #ccc;
+    }
+    /*二级菜单选中状态*/
+    .menu-second-selected {
+      background-color: #66c3ec;
+      height:31px;
+      line-height:31px;
+      border-top: 1px solid #83ceed;
+      border-bottom: 1px solid #83ceed;
+      border-right: 3px solid #f8881c;
+      border-left: 3px solid #66c3ec;
+      text-align:center;
+    }
+    /*覆盖bootstrap的样式*/
+    .nav-list,.nav-list li a{
+      padding: 0px;
+      margin: 0px;
+    }
+    .set-image img{width:20px;height:20px;}
+    /*覆盖图标样式*/
+    .glyphicon {
+    left: -10px;
+
+}
+    
+    </style>
+</head>
+<body>
+
+<div  class="set-toolbar">
+    <h4 class="text-center">工具栏</h4>
+        <div class="sidebar-menu" ng-app="myApp" ng-controller="personCtrl">
+            <a ng-click="toggle()">隐藏/显示</a>
+            <ul id="userMeun" ng-hide="myVar" class="nav nav-list collapse menu-second" ng-hide="titleStyle">
+                                        <li><a href="#"><span class="glyphicon  glyphicon-pencil"></span>小清新</a></li>
+                                        <li><a href="#"><span class="icon-edit"></span> 正常</a></li>
+                                        <li><a href="#"><span class="icon-trash"></span> 搞怪</a></li>              
+            </ul>
+        </div>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.myVar = false;
+    $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+    }
+});
+</script>
+
+</body>
+</html>
+

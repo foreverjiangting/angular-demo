@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href ="animation.css">
+   <script src= "angular.min.js"></script> 
+</head>
+<body  ng-app="myapp" >
+     
+        <div ng-controller="ng-controller">
+        	<!-- 通过ng-model指令，来控制option的下拉选择项 -->
+      	    <select ng-model="template " ng-options=" t.name for t in templates">
+      	    	<option value=" ">blank</option>
+      	    </select>
+      	    url of the template: <tt>{{template.url}}</tt>
+      	    <hr>
+      	    <div class="slide-animate-container">
+      	    	 <div class="slide-animate" ng-include="template.url"></div>
+
+      	    </div>
+
+        </div>
+        <script src= "ng-controller.js"></script>
+
+
+</body>
+
+</html>
